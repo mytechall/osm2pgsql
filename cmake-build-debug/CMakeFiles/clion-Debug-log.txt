@@ -1,0 +1,38 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/mymac/workspaces/web_related/osm2pgsql -B /Users/mymac/workspaces/web_related/osm2pgsql/cmake-build-debug
+-- The CXX compiler identification is AppleClang 14.0.0.14000029
+-- The C compiler identification is AppleClang 14.0.0.14000029
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Building osm2pgsql 1.8.1
+-- Building in C++17 mode
+-- Found Git: /usr/bin/git (found version "2.37.1 (Apple Git-137.1)") 
+-- Found ZLIB: /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd (found version "1.2.11") 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found Protozero: /Users/mymac/workspaces/web_related/osm2pgsql/contrib/protozero/include (found suitable version "1.7.1", minimum required is "1.6.3") 
+-- Found EXPAT: /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/lib/libexpat.tbd (found version "2.4.8") 
+-- Found BZip2: /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/lib/libbz2.tbd (found version "1.0.8") 
+-- Looking for BZ2_bzCompressInit
+-- Looking for BZ2_bzCompressInit - found
+-- Found Osmium: /Users/mymac/workspaces/web_related/osm2pgsql/contrib/libosmium/include (found suitable version "2.19.0", minimum required is "2.17.3") 
+-- Building with Lua support
+CMake Error at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find Lua (missing: LUA_LIBRARIES LUA_INCLUDE_DIR)
+Call Stack (most recent call first):
+  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+  cmake/FindLua.cmake:167 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
+  CMakeLists.txt:191 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/mymac/workspaces/web_related/osm2pgsql/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/mymac/workspaces/web_related/osm2pgsql/cmake-build-debug/CMakeFiles/CMakeError.log".
