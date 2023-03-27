@@ -4,3 +4,31 @@
 --- DateTime: 2023/3/23 15:08
 ---
 print('osm2pgsql version: ' .. osm2pgsql.version)
+
+-- 定义数据库连接参数
+local database_config = {
+    host = "localhost",
+    port = "5432",
+    database = "osm",
+    user = "osm",
+    password = "osm"
+}
+
+-- 定义osm2pgsql参数
+local osm2pgsql_config = {
+    style = "/Users/mymac/workspaces/web_related/osm2pgsql/flex-config/myown_osmscript.lua",
+    database = database_config,
+    output = "flex",
+    prefix = "osm",
+    multipolygon = true,
+    hstore = true
+}
+
+function osm2pgsql.process_node(object)
+    for i = 1, 10 do
+        if is_empty(object.tags) then
+            return
+        end
+        print(object)
+    end
+end
