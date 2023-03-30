@@ -52,10 +52,41 @@ function format_date(ts)
     return os.date('!%Y-%m-%dT%H:%M:%SZ', ts)
 end
 
+function object_to_string(object)
+    local tags = {}
+
+    -- 将 tags 属性转换为一个字符串
+    for k, v in pairs(object.tags) do
+        table.insert(tags, string.format('%s=%s', k, v))
+    end
+
+    -- 将其他属性组合成一个字符串
+    local props = {
+        string.format('id=%d', object.id),
+        string.format('type=%s', object.type),
+        --string.format('version=%d', object.version),
+        string.format('timestamp=%s', object.timestamp),
+        --string.format('changeset=%d', object.changeset),
+        --string.format('uid=%d', object.uid),
+        string.format('user=%s', object.user),
+    }
+
+    -- 将所有属性组合成一个字符串
+    local str = table.concat(props, ',')
+    if #tags > 0 then
+        str = str .. ',' .. table.concat(tags, ',')
+    end
+
+    return str
+end
+
 function osm2pgsql.process_node(object)
     if next(object.tags) == nil then
         return
     end
+
+    local object_str = object_to_string(object)
+    print(object_str)  -- 输出到控制台
 
     tables.nodes:insert({
         tags = object.tags,
@@ -69,6 +100,12 @@ function osm2pgsql.process_node(object)
 end
 
 function osm2pgsql.process_way(object)
+    if not osm2pgsql then
+        print("Error: osm2pgsql not loaded")
+        return
+    end
+    local object_str = object_to_string(object)
+    print(object_str)  -- 输出到控制台
     tables.ways:insert({
         tags = object.tags,
         geom = object:as_linestring(),
@@ -82,6 +119,12 @@ function osm2pgsql.process_way(object)
 end
 
 function osm2pgsql.process_relation(object)
+    if not osm2pgsql then
+        print("Error: osm2pgsql not loaded")
+        return
+    end
+    local object_str = object_to_string(object)
+    print(object_str)  -- 输出到控制台
     tables.relations:insert({
         tags = object.tags,
         version = object.version,
